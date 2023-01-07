@@ -1,0 +1,27 @@
+
+        <p>Following data is present in database</p>
+
+        <div>
+
+            <% for(let i of data)
+            {%>
+                <ul>
+                    <div>
+                        
+                        <h5>
+                           Name: <%=i.Name%>
+                        </h5>
+                        
+                    </div>
+
+                    <div>
+                        
+                        <h5>
+                            SID: <%=i.SID%>
+                         </h5>
+                    </div>
+                    
+                </ul>
+
+            <%} %> 
+        </div>
