@@ -24,7 +24,7 @@ module.exports.long_leave=function(req,res)
 }
 module.exports.late_leave=function(req,res)
 { 
-    // console.log("late")
+  
     if(req.cookies.user_id!=undefined)
     {
       const user= data.find(user => user.Unique_ID == req.cookies.user_id);
@@ -50,18 +50,21 @@ module.exports.late_leave=function(req,res)
 module.exports.applyll=function(req,res)
 {
   
-    console.log(req.query);
+    console.log(req.body);
+    // Handle database
+    // Add flash message if successfully applied
  
-        return res.redirect('/user/profile');
+    return res.redirect('/user/profile');
 
 }
 
 module.exports.applylateleave=function(req,res)
 {
     console.log("applied for late leave");
-    console.log(req.query);
+    console.log(req.body);
+    // Handle database
+    // Add flash message if successfully applied
     
-
     return res.redirect('/user/profile')
 }
 

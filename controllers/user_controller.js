@@ -45,6 +45,8 @@ module.exports.profile=function(req,res)
 
     }
     else{
+
+      // add flash message
       return res.redirect('/');
     }
   }
@@ -58,5 +60,7 @@ module.exports.profile=function(req,res)
 module.exports.sign_out=function(req,res)
 {
   res.clearCookie('user_id');
+
+  // Add flash message for sign out
   return res.redirect('/');
 }
