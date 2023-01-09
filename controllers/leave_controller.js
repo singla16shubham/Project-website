@@ -1,23 +1,59 @@
-
+const data=require("../nodejsEXCELlinker")
 module.exports.long_leave=function(req,res)
-{
-    return res.render('long_leave');
+{  
+    if(req.cookies.user_id!=undefined)
+    {
+      const user= data.find(user => user.Unique_ID == req.cookies.user_id);
+      if(user!=undefined)
+      {
+        return res.render('long_leave',{
+            title: 'long_leave',
+            user:user
+        });
+  
+      }
+      else{
+        return res.redirect('/');
+      }
+    }
+    else{
+      return res.redirect('/');
+  
+    }
+    
 }
 module.exports.late_leave=function(req,res)
 { 
     // console.log("late")
-    return res.render('late_leave');
+    if(req.cookies.user_id!=undefined)
+    {
+      const user= data.find(user => user.Unique_ID == req.cookies.user_id);
+      if(user!=undefined)
+      {
+        return res.render('late_leave',{
+            title: 'late_leave',
+            user:user
+        });
+  
+      }
+      else{
+        return res.redirect('/');
+      }
+    }
+    else{
+      return res.redirect('/');
+  
+    }
+    
 }
 
 module.exports.applyll=function(req,res)
 {
   
     console.log(req.query);
-    StudentList.create(req.query,function(err,student_data){
-        if(err){console.log('error in creating the list',err);return res.redirect('back');}
-        // console.log(student_data);
-        return res.redirect('/');
-    });
+ 
+        return res.redirect('/user/profile');
+
 }
 
 module.exports.applylateleave=function(req,res)
@@ -26,6 +62,6 @@ module.exports.applylateleave=function(req,res)
     console.log(req.query);
     
 
-    return res.redirect('/')
+    return res.redirect('/user/profile')
 }
 

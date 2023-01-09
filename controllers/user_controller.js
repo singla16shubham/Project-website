@@ -3,9 +3,6 @@ module.exports.logIn=function(req,res)
 {
     // if passwords match then show the user page other wise return back
     console.log(req.body);
-    
-    
-   
     const tempdata= data.find(user => user.Student_ID == req.body.SID)
     
    
@@ -34,7 +31,8 @@ module.exports.logIn=function(req,res)
 }
 
 module.exports.profile=function(req,res)
-{ console.log(req.cookies);
+{ 
+  // console.log(req.cookies);
   if(req.cookies.user_id!=undefined)
   {
     const user= data.find(user => user.Unique_ID == req.cookies.user_id);
