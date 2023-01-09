@@ -14,6 +14,7 @@
   </head>
   <body>
     <div class="testbox">
+      
       <form action="/Leave/apply_lateleave" method="post">
         <div class="banner">
           <h1>Late Leave Application Form</h1>
@@ -21,7 +22,7 @@
         <div class="item">
           <label for="name">Name<span>*</span></label>
           <div class="name-item">
-            <input id="name" type="text" name="Name" placeholder="First" required/>
+            <input id="name" type="text" name="Name" placeholder="First" value="<%= user.Student_Name %>" required/>
             <input id="name" type="text" name="Lastname" placeholder="Last" required/>
           </div>
         </div>
