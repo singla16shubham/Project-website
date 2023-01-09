@@ -12,7 +12,8 @@ module.exports.logIn=function(req,res)
     if(tempdata!=undefined)
     {
       if(tempdata.Password==req.body.password){
-        return res.render('user');
+        res.cookie('user_id',tempdata.Unique_ID)
+        return res.redirect('/user/profile');
       } else 
       { 
         
@@ -30,4 +31,34 @@ module.exports.logIn=function(req,res)
     } 
 
     // return res.render('back')
+}
+
+module.exports.profile=function(req,res)
+{ console.log(req.cookies);
+  if(req.cookies.user_id!=undefined)
+  {
+    const user= data.find(user => user.Unique_ID == req.cookies.user_id);
+    if(user!=undefined)
+    {
+      return res.render('profile',{
+        title:"User Profile",
+        user:user
+      });
+
+    }
+    else{
+      return res.redirect('/');
+    }
+  }
+  else{
+    return res.redirect('/');
+
+  }
+  
+}
+
+module.exports.sign_out=function(req,res)
+{
+  res.clearCookie('user_id');
+  return res.redirect('/');
 }
