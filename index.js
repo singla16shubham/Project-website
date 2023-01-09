@@ -2,16 +2,15 @@ const express=require('express');
 const app=express();
 const port=8000;
 const path=require('path');
-const passport=require('passport');
-const initializePassport=require('./config/passport');
-// initializePassport(passport,
-//     SID => users.find(user => user.SID === SID),
-//     );
+var data=require('./nodejsEXCELlinker')
+
 
 const cookieParser=require('cookie-parser');
 app.use(express.urlencoded()); // so that i can access form data
 app.use(express.static('assets'));
 app.use(cookieParser());
+
+
 
 const db = require('./config/mongoose');
 

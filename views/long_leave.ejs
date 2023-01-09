@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!-- <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
@@ -14,9 +10,7 @@
         
     </head>
     <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+       
         <p>You are applying for long leave</p>
 
         <form action="/Leave/apply_longleave" method="get">
@@ -27,7 +21,7 @@
             <input type="date" name="Start_date" placeholder="Enter starting date">
             <input type="date" name="End_date" placeholder="Enter ending date">
             <br>
-            <!-- <input type="text " name="Reason" placeholder="Enter your reason"> -->
+           
             <textarea name="Reason" cols="30" rows="3" placeholder="Enter your reason" required></textarea>
             <input type="submit">
         </form>
@@ -37,4 +31,86 @@
 
 
     </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Long Leave Application Form </title>
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/long_leave.css">
+  </head>
+  <body>
+    <div class="testbox">
+      <form action="/Leave/apply_longleave" method="get">
+        <div class="banner">
+          <h1>Long Leave Application Form</h1>
+        </div>
+        <div class="item">
+          <label for="name">Name<span>*</span></label>
+          <div class="name-item">
+            <input id="name" type="text" name="Name" placeholder="First" required/>
+            <input id="name" type="text" name="Last_name" placeholder="Last" required/>
+          </div>
+        </div>
+        <div class="item">
+          <label for="bdate">Start Date<span>*</span></label>
+          <input id="bdate" type="date" name="Start_date" required/>
+          <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="item">
+            <label for="bdate">End Date<span>*</span></label>
+            <input id="bdate" type="date" name="End_date" required/>
+            <i class="fas fa-calendar-alt"></i>
+        </div>
+        <div class="item">
+          <div class="name-item">
+            <div>
+              <label for="address">Email Address<span>*</span></label>
+              <input id="address" type="text" name="Email" required/>
+            </div>
+            <div>
+              <label for="number">Phone Number</label>
+              <input id="number" type="tel" name="Phone_number" />
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="name-item">
+            <div>
+              <label for="language">SID</label>
+              <input id="language" type="number" name="SID" />
+            </div>
+            <div>
+                <label for="number">Parent's Phone Number</label>
+                <input id="number" type="tel" name="Parent_number" />
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="name-item">
+            <div>
+              <label for="country">Room Number</label>
+              <input id="country" type="number" name="Room_number" />
+            </div>
+            <div>
+              <label for="job">Reason for Leave</label>
+              <input id="job" type="text" name="Reason" />
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <label for="apply">Address of Visiting Plane</label>
+          <input id="apply" type="text" name="Visiting_address"/>
+        </div>
+          <button type="submit">APPLY</button>
+        </div>
+      </form>
+    </div>
+  </body>
 </html>
