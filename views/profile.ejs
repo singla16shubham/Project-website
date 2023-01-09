@@ -10,7 +10,9 @@
     </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="">
+    <!-- <link rel="stylesheet" href=""> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
 </head>
 
 <body>
@@ -58,7 +60,33 @@
         </a>
     </div>
 
-    <script src="" async defer></script>
+    <!-- <script src="" async defer></script> -->
+    <script>
+    
+
+        <% if (flash.success && flash.success.length > 0) {%>
+          new Noty({
+            theme: 'relax',
+            text: '<%=flash.success%>',
+            type: 'success',
+            timeout: 1000,
+            layout: 'topRight',
+        
+          }).show();
+          <%} %> 
+        
+          <% if (flash.error && flash.error.length > 0) {%>
+                new Noty({
+                    theme: 'relax',
+                    text: "<%= flash.error %>",
+                    type: 'error',
+                    layout: 'topRight',
+                    timeout: 1000
+                    
+                }).show();    
+            <%} %>
+        
+        </script>
 </body>
 
 </html>

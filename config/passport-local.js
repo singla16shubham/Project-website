@@ -23,6 +23,7 @@ if(tempdata!=undefined)
   { 
     
     // Add flash message 
+    req.flash('error',"Invalid Username/Password");
     console.log("Wrong password")
     // return res.redirect('/')
     return done(null,false);
@@ -32,7 +33,8 @@ else
 {
   //  Must add flash message
   console.log("Sorry user not found");
-  return done("Error");
+  req.flash("error","User not found");
+  return done(null,false);
 
 } 
   

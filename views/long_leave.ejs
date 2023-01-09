@@ -1,37 +1,3 @@
-<!-- <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Long-Leave</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-        
-    </head>
-    <body>
-       
-        <p>You are applying for long leave</p>
-
-        <form action="/Leave/apply_longleave" method="get">
-
-            <input type="text" name="Name" placeholder="Enter your name" >
-            <input type="number" name="SID" placeholder="Enter your SID" >
-            <br>
-            <input type="date" name="Start_date" placeholder="Enter starting date">
-            <input type="date" name="End_date" placeholder="Enter ending date">
-            <br>
-           
-            <textarea name="Reason" cols="30" rows="3" placeholder="Enter your reason" required></textarea>
-            <input type="submit">
-        </form>
-        
-        
-
-
-
-    </body>
-</html> -->
 
 <!DOCTYPE html>
 <html>
@@ -44,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/long_leave.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
   </head>
   <body>
     <div class="testbox">
@@ -116,5 +84,32 @@
     <a href="/user/profile"><button >GO back to profile page</button></a>
      </div>
     </div>
+    <script>
+      
+
+<% if (flash.success && flash.success.length > 0) {%>
+  new Noty({
+    theme: 'relax',
+    text: '<%=flash.success%>',
+    type: 'success',
+    timeout: 1000,
+    layout: 'topRight',
+
+  }).show();
+  <%} %> 
+
+  <% if (flash.error && flash.error.length > 0) {%>
+        new Noty({
+            theme: 'relax',
+            text: "<%= flash.error %>",
+            type: 'error',
+            layout: 'topRight',
+            timeout: 1000
+            
+        }).show();    
+    <%} %>
+
+    </script>
+    <!-- <script src="/js/script.js"></script> -->
   </body>
 </html>
