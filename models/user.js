@@ -1,19 +1,19 @@
-const mongoose= require("mongoose");
+// const mongoose= require("mongoose");
 
-const userSchema=new mongoose.Schema({
+// const userSchema=new mongoose.Schema({
 
-    Name:{
-        type:String,
-        required:true
-    },
-       // for description of the task
-    SID: {
-        type: String,
-        required: true
-    },
+//     Name:{
+//         type:String,
+//         required:true
+//     },
+//        // for description of the task
+//     SID: {
+//         type: String,
+//         required: true
+//     },
 
-})
+// })
 
-const StudentList = mongoose.model('StudentList',userSchema);
+// const StudentList = mongoose.model('StudentList',userSchema);
 
-module.exports = StudentList;
+// module.exports = StudentList;

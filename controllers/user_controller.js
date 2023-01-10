@@ -16,14 +16,11 @@ module.exports.profile=function(req,res)
 
 module.exports.sign_out=function(req,res)
 {
- 
   req.logout(function(err) {
     if (err) { return next(err); }
     req.flash("success","Logged out successfully")
     
     res.redirect('/');
   });
-
-  // Add flash message for sign out
   
 }
