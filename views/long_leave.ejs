@@ -23,7 +23,7 @@
           <label for="name">Name<span>*</span></label>
           <div class="name-item">
             <input id="name" type="text" name="Name" placeholder="First" required/>
-            <input id="name" type="text" name="Last_name" placeholder="Last" required/>
+            <input id="name" type="text" name="Last_name" placeholder="Last" />
           </div>
         </div>
         <div class="item">
@@ -33,14 +33,14 @@
         </div>
         <div class="item">
             <label for="bdate">End Date<span>*</span></label>
-            <input id="bdate" type="date" name="End_date" required/>
+            <input id="bdate" type="date"  name="End_date" required/>
             <i class="fas fa-calendar-alt"></i>
         </div>
         <div class="item">
           <div class="name-item">
             <div>
-              <label for="address">Email Address<span>*</span></label>
-              <input id="address" type="text" name="Email" required/>
+              <label for="address">Email Address</label>
+              <input id="address" type="text" name="Email" />
             </div>
             <div>
               <label for="number">Phone Number</label>
@@ -51,8 +51,8 @@
         <div class="item">
           <div class="name-item">
             <div>
-              <label for="language">SID</label>
-              <input id="language" type="number" name="SID" />
+              <label for="language">SID<span>*</span></label>
+              <input id="language" type="number" name="SID" required />
             </div>
             <div>
                 <label for="number">Parent's Phone Number</label>
@@ -67,21 +67,21 @@
               <input id="country" type="number" name="Room_number" />
             </div>
             <div>
-              <label for="job">Reason for Leave</label>
-              <input id="job" type="text" name="Reason" />
+              <label for="job">Reason for Leave<span>*</span></label>
+              <input id="job" type="text" name="Reason" required />
             </div>
           </div>
         </div>
         <div class="item">
-          <label for="apply">Address of Visiting Plane</label>
-          <input id="apply" type="text" name="Visiting_address"/>
+          <label for="apply">Address of Visiting Plane<span>*</span></label>
+          <input id="apply" type="text" name="Visiting_address" required/>
         </div>
           <button type="submit">APPLY</button>
         </div>
          
       </form>
     </div>
-    <a href="/user/profile"><button >GO back to profile page</button></a>
+    <center><a href="/user/profile"><button class="button button2">GO back to profile page</button></a></center>
      </div>
     </div>
     <script>
@@ -110,6 +110,23 @@
     <%} %>
 
     </script>
+    <!-- <script type="text/javascript">
+      $(function(){
+        var dtToday = new Date();
+       
+       var month = dtToday.getMonth() ;
+       var day=dtToday.getDate()+20;
+       var minday = dtToday.getDate()+3;
+       var year = dtToday.getFullYear();
+       if(month < 10)
+           month = '0' + month.toString();
+       if(day < 10)
+        day = '0' + day.toString();
+       var maxDate = year + '-' + month + '-' + day;
+       var minDate = year + '-' + month + '-' + minday;
+       $('#inputdate').attr(minDate, maxDate);
+      });
+    </script> -->
     <!-- <script src="/js/script.js"></script> -->
   </body>
 </html>

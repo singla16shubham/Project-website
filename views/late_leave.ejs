@@ -25,7 +25,7 @@
           <label for="name">Name<span>*</span></label>
           <div class="name-item">
             <input id="name" type="text" name="Name" placeholder="First" value="<%= user.Student_Name %>" required/>
-            <input id="name" type="text" name="Lastname" placeholder="Last" required/>
+            <input id="name" type="text" name="Lastname" placeholder="Last"/>
           </div>
         </div>
         <div class="item">
@@ -36,12 +36,12 @@
         <div class="item">
           <div class="name-item">
             <div>
-              <label for="address">Email Address<span>*</span></label>
-              <input id="address" type="text" name="Email" required/>
+              <label for="address">Email Address</label>
+              <input id="address" type="text" name="Email" />
             </div>
             <div>
-              <label for="number">Phone Number<span>*</span></label>
-              <input id="number" type="tel" name="Phone_number" required />
+              <label for="number">Phone Number</label>
+              <input id="number" type="tel" name="Phone_number"/>
             </div>
           </div>
         </div>
@@ -52,20 +52,20 @@
               <input id="language" type="number" name="SID" required/>
             </div>
             <div>
-                <label for="number">Parent's Phone Number<span>*</span></label>
-                <input id="number" type="tel" name="Parent_number" required />
+                <label for="number">Parent's Phone Number</label>
+                <input id="number" type="tel" name="Parent_number" />
             </div>
           </div>
         </div>
         <div class="item">
           <div class="name-item">
             <div>
-              <label for="country">Room Number<span>*</span></label>
-              <input id="country" type="number" name="Room_number" required />
+              <label for="country">Room Number</label>
+              <input id="country" type="number" name="Room_number" />
             </div>
             <div>
-              <label for="job">Branch<span>*</span></label>
-              <input id="job" type="text" name="Branch" required/>
+              <label for="job">Branch</label>
+              <input id="job" type="text" name="Branch" />
             </div>
           </div>
         </div>
@@ -77,7 +77,7 @@
         </div>
       </form>
     </div>
-    <a href="/user/profile"><button >GO back to profile page</button></a>
+    <center><a href="/user/profile"><button class="button button2">GO back to profile page</button></a></center>
      </div>
     </div>
 
@@ -107,5 +107,22 @@
     <%} %>
 
     </script>
+    <!-- <script type="text/javascript">
+      $(function(){
+          var dtToday = new Date();
+       
+          var month = dtToday.getMonth() ;
+          var day=dtToday.getDate()+20;
+          var minday = dtToday.getDate()+3;
+          var year = dtToday.getFullYear();
+          if(month < 10)
+              month = '0' + month.toString();
+          if(day < 10)
+           day = '0' + day.toString();
+          var maxDate = year + '-' + month + '-' + day;
+          var minDate = year + '-' + month + '-' + minday;
+          $('#inputdate').attr(minDate, maxDate);
+      });
+      </script> -->
   </body>
 </html>

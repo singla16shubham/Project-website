@@ -114,6 +114,11 @@ html, body {
     button:hover {
     background: #008000;
     }
+    .button2 {
+        /* color: chartreuse; */
+        border-radius: 12px;
+        margin-bottom: 5px;
+    }
     @media (min-width: 568px) {
     .name-item, .city-item {
     display: flex;
