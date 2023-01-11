@@ -24,24 +24,24 @@
         <div class="item">
           <label for="name">Name<span>*</span></label>
           <div class="name-item">
-            <input id="name" type="text" name="Name" placeholder="First" value="<%= user.Student_Name %>" required/>
-            <input id="name" type="text" name="Lastname" placeholder="Last"/>
+            <input id="name" type="text" name="name" placeholder="First" value="<%= user.name %>"/>
+            <input id="name" type="text" name="lastname" placeholder="Last"/>
           </div>
         </div>
         <div class="item">
           <label for="bdate">Date of Late Leave<span>*</span></label>
-          <input id="bdate" type="date" name="Start_date" required/>
+          <input id="bdate" type="date" name="start_date" required/>
           <i class="fas fa-calendar-alt"></i>
         </div>
         <div class="item">
           <div class="name-item">
             <div>
               <label for="address">Email Address</label>
-              <input id="address" type="text" name="Email" />
+              <input id="address" type="text" name="email" />
             </div>
             <div>
               <label for="number">Phone Number</label>
-              <input id="number" type="tel" name="Phone_number"/>
+              <input id="number" type="tel" name="number"/>
             </div>
           </div>
         </div>
@@ -49,11 +49,11 @@
           <div class="name-item">
             <div>
               <label for="language">SID<span>*</span></label>
-              <input id="language" type="number" name="SID" required/>
+              <input id="language" type="number" name="sid" required/>
             </div>
             <div>
                 <label for="number">Parent's Phone Number</label>
-                <input id="number" type="tel" name="Parent_number" />
+                <input id="number" type="tel" name="parent_number" />
             </div>
           </div>
         </div>
@@ -61,17 +61,17 @@
           <div class="name-item">
             <div>
               <label for="country">Room Number</label>
-              <input id="country" type="number" name="Room_number" />
+              <input id="country" type="number" name="room_number" />
             </div>
             <div>
               <label for="job">Branch</label>
-              <input id="job" type="text" name="Branch" />
+              <input id="job" type="text" name="department" />
             </div>
           </div>
         </div>
         <div class="item">
           <label for="apply">Address of Visiting Plane<span>*</span></label>
-          <input id="apply" type="text" name="Visiting_address" required/>
+          <input id="apply" type="text" name="visiting_address" required/>
         </div>
           <button type="submit">APPLY</button>
         </div>

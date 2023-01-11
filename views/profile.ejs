@@ -28,7 +28,7 @@
                       <div class="d-flex flex-column align-items-center text-center">
                         <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
                         <div class="mt-3">
-                          <h4><%= user.Student_Name %> </h4>
+                          <h4><%= user.name %> </h4>
                           <p class="text-secondary mb-1">Punjab Engineering College</p>
                           <p class="text-muted font-size-sm">Chandigarh</p>
                          <a href="/Leave/long-leave">
@@ -53,7 +53,7 @@
                           <h6 class="mb-0">Full Name</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <%= user.Student_Name %> 
+                            <%= user.name %> 
                         </div>
                       </div>
                       <hr>
@@ -62,7 +62,7 @@
                           <h6 class="mb-0">Email</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <%= user.Student_Email %>
+                            <%= user.email %>
 
                         </div>
                       </div>
@@ -72,7 +72,7 @@
                           <h6 class="mb-0">Phone</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <%= user.Student_Phone_Number %>
+                            <%= user.number %>
                         </div>
                       </div>
                       <hr>
@@ -81,7 +81,7 @@
                           <h6 class="mb-0">SID</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                          <%= user.Student_ID %>
+                          <%= user.sid %>
                         </div>
                       </div>
                       <hr>
@@ -90,18 +90,18 @@
                           <h6 class="mb-0">Address</h6>
                         </div>
                         <div class="col-sm-9 text-secondary">
-                            <%= user.Address %>
+                            <%= user.address %>
                         </div>
                       </div>
                       <hr>
-                      <% if(user.Leave_Applied)
+                      <% if(user.leave_applied)
                       {%>
                         <div class="row">
                             <div class="col-sm-3">
                               <h6 class="mb-0">Leave Status</h6>
                             </div>
                             
-                                <% if(user.Leave_Approved){%>
+                                <% if(user.leave_approved){%>
                                     <div class="col-sm-9 text-secondary">
                                         Approved
                                     </div>

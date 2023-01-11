@@ -1,45 +1,59 @@
 const passport=require('passport');
 const LocalStrategy=require('passport-local').Strategy;
-const studentData=require('../models/user');
+const User=require('../models/user');
 // now just use studentData in place of data 
 
 const data=require('../nodejsEXCELlinker');
 
 // Authentication with passprt
 passport.use(new LocalStrategy({
-        usernameField:'SID',
+        usernameField:'sid',
         passReqToCallback:true
     },
-    function(req,SID,password,done)
+    function(req,sid,password,done)
     {
+      User.findOne({sid:sid},function(err,user){
+        if(err)
+        {
+            req.flash('error',"Error in finding user");
+            return done(err);
+        }
+        if(!user||user.password!=password)
+        {
+            req.flash('error',"Invalid Username / Password");
+            return done(null,false);
+        }
+        return done(null,user);
+
+    })
 // find a user and establish identity
-const tempdata= data.find(user => user.Student_ID == SID);
-// Now in place of this find in mongo db
+// const tempdata= data.find(user => user.sid == sid);
+// // Now in place of this find in mongo db
     
    
-if(tempdata!=undefined)
-{
-  if(tempdata.Password==password){
-    // res.cookie('user_id',tempdata.Unique_ID)
-    return done(null,tempdata);
-  } else 
-  { 
+// if(tempdata!=undefined)
+// {
+//   if(tempdata.password==password){
+//     // res.cookie('user_id',tempdata.Unique_ID)
+//     return done(null,tempdata);
+//   } else 
+//   { 
     
-    // Add flash message 
-    req.flash('error',"Invalid Username/Password");
-    console.log("Wrong password")
-    // return res.redirect('/')
-    return done(null,false);
-  }
-}
-else
-{
-  //  Must add flash message
-  console.log("Sorry user not found");
-  req.flash("error","User not found");
-  return done(null,false);
+//     // Add flash message 
+//     req.flash('error',"Invalid Username/Password");
+//     console.log("Wrong password")
+//     // return res.redirect('/')
+//     return done(null,false);
+//   }
+// }
+// else
+// {
+//   //  Must add flash message
+//   console.log("Sorry user not found");
+//   req.flash("error","User not found");
+//   return done(null,false);
 
-} 
+// } 
   
  }
 
@@ -50,19 +64,27 @@ else
 
 // Serializing the user to decide which key is to be kept in cookies
 passport.serializeUser(function(user,done){
-    done(null,user.Unique_ID);
+  console.log(user.id);
+    done(null,user.id);
 })
 
 // Deserializing the user from the key in the cookies
 passport.deserializeUser(function(id,done){
 
-    const tempdata= data.find(user => user.Unique_ID == id);
-    if(tempdata==undefined)
-    {
-        console.log("Error in finding user--->Passprt");
+    // const tempdata= data.find(user => user.unique_id == id);
+    // if(tempdata==undefined)
+    // {
+    //     console.log("Error in finding user--->Passprt");
 
-    }
-    return done(null,tempdata);
+    // }
+    // return done(null,tempdata);
+    User.findById(id,function(err,user){
+      if(err)
+      {
+          console.log("Error in finding user--->Passprt");
+      }
+      return done(null,user);
+  })
 
   
 })
