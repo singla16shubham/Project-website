@@ -21,11 +21,11 @@ const userSchema=new mongoose.Schema({
 
     },
     start_date:{
-        type: Date,
+        type: String,
         required:true
     },
     end_date:{
-        type: Date,
+        type: String,
         required:true
     },
     reason:{
