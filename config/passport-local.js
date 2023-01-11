@@ -1,5 +1,7 @@
 const passport=require('passport');
 const LocalStrategy=require('passport-local').Strategy;
+const studentData=require('../models/user');
+// now just use studentData in place of data 
 
 const data=require('../nodejsEXCELlinker');
 
@@ -11,7 +13,8 @@ passport.use(new LocalStrategy({
     function(req,SID,password,done)
     {
 // find a user and establish identity
-const tempdata= data.find(user => user.Student_ID == SID)
+const tempdata= data.find(user => user.Student_ID == SID);
+// Now in place of this find in mongo db
     
    
 if(tempdata!=undefined)

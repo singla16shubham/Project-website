@@ -1,15 +1,15 @@
-// const mongoose=require('mongoose');
-// mongoose.connect('mongodb://localhost/student_database');
+const mongoose=require('mongoose');
+mongoose.connect('mongodb://localhost/student_database');
 
-// // acquired connection to db
-// const db=mongoose.connection;
+// acquired connection to db
+const db=mongoose.connection;
 
-// //error
-// db.on('error',console.error.bind(console,"Error connecting to MongoDB"));
+//error
+db.on('error',console.error.bind(console,"Error connecting to MongoDB"));
 
-// //up and running then print the message
-// db.once('open',function(){
-//     console.log('Connected to Database :: MongoDB');
-// });
+//up and running then print the message
+db.once('open',function(){
+    console.log('Connected to Database :: MongoDB');
+});
 
-// module.exports = db;
+module.exports = db;

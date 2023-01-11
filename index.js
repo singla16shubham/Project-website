@@ -20,7 +20,7 @@ app.use(cookieParser());
 
 
 
-// const db = require('./config/mongoose');
+const db = require('./config/mongoose');
 
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));

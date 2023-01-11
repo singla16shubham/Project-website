@@ -1,4 +1,5 @@
-const data=require("../nodejsEXCELlinker")
+const data=require("../nodejsEXCELlinker");
+const studentData=require('../models/user')
 module.exports.long_leave=function(req,res)
 {     
         return res.render('long_leave',{
