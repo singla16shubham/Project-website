@@ -2,7 +2,7 @@ const reader = require('xlsx');
 const User=require('./models/user');
   
 // Reading our test file
-const file = reader.readFile('./dataset.xlsx')
+const file = reader.readFile('./dataset.xlsx',{cellDates:true});
   
 let data = []
   

@@ -31,18 +31,18 @@
                                   Date of leave:  <%= i.start_date %> To <%= i.end_date %> 
                                 </p>
                                 <div class="action-button-container">
-                                   <a href="">
-                                    <button class="btn btn-success btn-sm">
-                                        Approve</button>
-
-                                   </a> 
-                                   <a href="">
-                                    <button class="btn btn-danger btn-sm">
-                                         Disapprove 
-                                    </button>
-
-                                   </a>
-                                 </div>
+                                    <a href="/admin/<%=i.sid%>/1">
+                                     <button class="btn btn-success btn-sm">
+                                         Approve</button>
+ 
+                                    </a> 
+                                    <a href="/admin/<%=i.sid%>/0">
+                                     <button class="btn btn-danger btn-sm">
+                                          Disapprove 
+                                     </button>
+ 
+                                    </a>
+                                  </div>
                             </div>
     
                             

@@ -31,11 +31,11 @@
                           <h4><%= user.name %> </h4>
                           <p class="text-secondary mb-1">Punjab Engineering College</p>
                           <p class="text-muted font-size-sm">Chandigarh</p>
-                         <a href="/Leave/long-leave">
+                         <a href="/Leave/long-leave/<%= user.sid %> ">
                             <button class="btn btn-primary">Long-Leave</button>
 
                          </a> 
-                          <a href="/Leave/late-leave">
+                          <a href="/Leave/late-leave/<%= user.sid %>">
                             <button class="btn btn-primary">Late-Leave</button>
 
                           </a>
@@ -94,14 +94,14 @@
                         </div>
                       </div>
                       <hr>
-                      <% if(user.leave_applied)
+                      <% if(user.longleave_applied)
                       {%>
                         <div class="row">
                             <div class="col-sm-3">
-                              <h6 class="mb-0">Leave Status</h6>
+                              <h6 class="mb-0">Long Leave Status</h6>
                             </div>
                             
-                                <% if(user.leave_approved){%>
+                                <% if(user.longleave_approved){%>
                                     <div class="col-sm-9 text-secondary">
                                         Approved
                                     </div>
@@ -120,7 +120,34 @@
                           <hr>
                         <%} %>
                      
-                      
+                        
+                        <% if(user.lateleave_applied)
+                        {%>
+                          <div class="row">
+                              <div class="col-sm-3">
+                                <h6 class="mb-0">Long Leave Status</h6>
+                              </div>
+                              
+                                  <% if(user.lateleave_approved){%>
+                                      <div class="col-sm-9 text-secondary">
+                                          Approved
+                                      </div>
+                                    <%} 
+                                    else
+                                    {%>
+                                      <div class="col-sm-9 text-secondary">
+                                          Not Approved yet
+                                      </div>
+                                      <%}
+                                    
+                                    %>
+                              
+                            </div>
+  
+                            <hr>
+                          <%} %>
+                       
+                        
                       <div class="row">
                         <div class="col-sm-12">
                           <a class="btn btn-info "  href="/user/sign-out">Sign-Out</a>

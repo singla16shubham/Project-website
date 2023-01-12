@@ -5,9 +5,24 @@ const userSchema=new mongoose.Schema({
     name:{
         type:String,
         required:true
+    },  
+    sid:{
+        type: String,
+        required: true
     },
-       
-    sid: {
+    dob:{
+        type: String,
+        required:true
+    },
+    address:{
+        type: String,
+        required: true
+    },
+    department:{
+        type:String,
+        required:true
+    },
+    number:{
         type: String,
         required: true
     },
@@ -18,7 +33,58 @@ const userSchema=new mongoose.Schema({
     password:{
         type: String,
         required: true
-
+    },
+    parent:{
+        type: String,
+        required: true
+    },
+    parent_number:{
+        type: String,
+        required: true
+    },
+    location:{
+        type: String,
+        required:true
+    },
+    on_leave:{
+        type: String,
+        required:true
+    },
+    longleave_applied:{
+        type:Boolean,
+        required:true
+    },
+    longleave_approved:{
+        type:Boolean,
+        required:true
+    },
+    room_number:{
+        type: String,
+        required:true
+    },
+    lateleave_reason:{
+        type: String,
+        required:true
+    },
+    lateleaves_sem:{
+        type: String,
+        required:true
+    },
+    lateleaves_month:{
+        type: String,
+        required:true
+    },
+    lateleave_date:{
+        type: String,
+        required:true
+    },
+    lateleave_address:{
+        type: String,
+        required:true
+    },
+    longleave_reason:{
+        type: String,
+        required:true
     },
     start_date:{
         type: String,
@@ -28,39 +94,18 @@ const userSchema=new mongoose.Schema({
         type: String,
         required:true
     },
-    reason:{
-        type:String,
-        require:true
+    longleave_address:{
+        type: String,
+        required:true
     },
-    leave_applied:{
+    lateleave_applied:{
         type:Boolean,
         required:true
     },
-    leave_approved:{
+    lateleave_approved:{
         type:Boolean,
         required:true
-    },
-    room_number:{
-        type: String,
-        required: true
-    },
-    reason:{
-        type: String,
-        required: true
-    },
-    visiting_address:{
-        type: String,
-        required: true
-    },
-    number:{
-        type: String,
-        required: true
-
-    },
-    address:{
-        type: String,
-        required: true
-    }
+    }   
 })
 
 const StudentList = mongoose.model('StudentList',userSchema);
