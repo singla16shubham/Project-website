@@ -67,11 +67,11 @@ const userSchema=new mongoose.Schema({
         required:true
     },
     lateleaves_sem:{
-        type: String,
+        type: Number,
         required:true
     },
     lateleaves_month:{
-        type: String,
+        type: Number,
         required:true
     },
     lateleave_date:{
@@ -105,7 +105,15 @@ const userSchema=new mongoose.Schema({
     lateleave_approved:{
         type:Boolean,
         required:true
-    }   
+    },
+    to_show_long:{
+        type:Boolean,
+        required:true
+    },
+    to_show_late:{
+        type:Boolean,
+        required:true
+    }    
 })
 
 const StudentList = mongoose.model('StudentList',userSchema);

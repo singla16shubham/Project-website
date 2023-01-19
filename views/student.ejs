@@ -9,49 +9,12 @@
     <script src="https://kit.fontawesome.com/c035598f8c.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/student.css">
 <!-- In this page we will show the data of the users who have applied for the leave....this page must be accessible to only mam -->
-        <p>Following data is present in database</p>
+<a href="/admin/getlongleave">
+    <button class="btn btn-primary">Long-Leave</button>
 
-        <div id="container">
-            <ul id="list">
-                <% for(let i of student_list){%>
-                    <li>
-                        <div class="card task-card">
-                          
-    
-                            <div class="card-body task-body">
-                                <h5 class="card-title ">
-                                  Student Name:  <%= i.name %>
-                                  <br>
-                                  SID: <%= i.sid %> 
-                                </h5>
-                                <p class="text-muted">
-                                   Reason for Leave: <%= i.reason %>
-                                </p>
-                                <p class="text-muted">
-                                  Date of leave:  <%= i.start_date %> To <%= i.end_date %> 
-                                </p>
-                                <div class="action-button-container">
-                                    <a href="/admin/<%=i.sid%>/1">
-                                     <button class="btn btn-success btn-sm">
-                                         Approve</button>
- 
-                                    </a> 
-                                    <a href="/admin/<%=i.sid%>/0">
-                                     <button class="btn btn-danger btn-sm">
-                                          Disapprove 
-                                     </button>
- 
-                                    </a>
-                                  </div>
-                            </div>
-    
-                            
-                          
-                        </div>
-                    </li>
-    
-                    <%} %>
-            </ul>
+ </a> 
+  <a href="/admin/getlateleave">
+    <button class="btn btn-primary">Late-Leave</button>
 
-           
-        </div>
+  </a>
+        

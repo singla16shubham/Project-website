@@ -1,7 +1,8 @@
 const data=require("../nodejsEXCELlinker")
 
 module.exports.logIn=function(req,res)
-{
+{ //can we get username and pass here
+  console.log(req.user);
   req.flash("success","Logged In successfully")
   return res.redirect('/user/profile');
 }
