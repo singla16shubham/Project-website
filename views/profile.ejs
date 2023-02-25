@@ -94,7 +94,26 @@
                         </div>
                       </div>
                       <hr>
-                      <% if( user.longleave_applied || ( !user.longleave_applied && user.to_show_long ))
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Late Leaves (sem)</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <%= user.lateleaves_sem %>
+                        </div>
+                      </div>
+                      <hr><div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Late Leaves (month)</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <%= user.lateleaves_month %>
+                        </div>
+                      </div>
+                      <hr>
+                      
+                      <!-- to show leave status to user -->
+                      <% if( user.to_show_long )
                       {%>
                         <div class="row">
                             <div class="col-sm-3">
@@ -122,23 +141,20 @@
                           </div>
                           <hr>
                         <%} %>
-                     
-                        
-                        <% if( user.lateleave_applied || ( !user.lateleave_applied && user.to_show_late ))
-                        {%>                    
+                                            
+                        <% if( user.to_show_late ){%>                    
                           <div class="row">
                               <div class="col-sm-3">
                                 <h6 class="mb-0">Late Leave Status</h6>
                               </div>
                               
-                                  <% if(user.lateleave_approved)
-                                      {%><div class="col-sm-9 text-secondary">
+                                  <% if(user.lateleave_approved){%>
+                                    <div class="col-sm-9 text-secondary">
                                           Approved
                                          </div>
-                                      <%} 
-                                     else{
-                                       if(user.lateleave_applied)
-                                        {%><div class="col-sm-9 text-secondary">
+                                      <%} else{
+                                       if(user.lateleave_applied){%>
+                                          <div class="col-sm-9 text-secondary">
                                          Not Approved yet
                                            </div>
                                         <%}
@@ -147,10 +163,8 @@
                                            Rejected
                                            </div>
                                         <%}
-                                      }
-                                  %> 
+                                      }%> 
                             </div>
-  
                             <hr>
                           <%} %>
                        
@@ -169,40 +183,6 @@
             </div>
         </div>
 
-    <!-- <div>
-        <a href="/Leave/long-leave">
-            <button>
-                Apply for long leave
-
-            </button>
-
-        </a>
-
-    </div>
-
-
-    <div>
-        <a href="/Leave/late-leave">
-            <button>
-                Apply for late leave
-
-            </button>
-
-        </a>
-
-    </div>
-
-
-
-    <div>
-        <a href="/user/sign-out">
-            <button>
-                Sign-out
-            </button>
-        </a>
-    </div> -->
-
-    <!-- <script src="" async defer></script> -->
     <script>
     
 

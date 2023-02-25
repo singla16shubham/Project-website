@@ -73,6 +73,10 @@
           <label for="apply">Address of Visiting Plane<span>*</span></label>
           <input id="apply" type="text" name="visiting_address" required/>
         </div>
+        <div class="item">
+          <label for="apply1">Reason for leave<span>*</span></label>
+          <input id="apply1" type="text" name="reason" required/>
+      </div>
           <button type="submit">APPLY</button>
         </div>
       </form>
@@ -80,6 +84,23 @@
     <center><a href="/user/profile"><button class="button button2">GO back to profile page</button></a></center>
      </div>
     </div>
+    <script>
+      var todayDate = new Date();
+      var month = todayDate.getMonth()+1;
+      var year = todayDate.getUTCFullYear() - 0;
+      var tdate = todayDate.getDate();
+      if (month < 10) {
+          month = "0" + month
+      }
+      if (tdate < 10) {
+          tdate = "0" + tdate;
+      }
+      var minDate = year + "-" + month + "-" + tdate;
+      var elem=document.getElementsByName("start_date")
+      elem[0].setAttribute("min", minDate);
+      // elem[0].setAttribute("max", maxDate);
+      console.log(maxDate);
+  </script>
 
     <script>
       

@@ -8,8 +8,7 @@
     <!-- fontsawesome cdn -->
     <script src="https://kit.fontawesome.com/c035598f8c.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/student.css">
-<!-- In this page we will show the data of the users who have applied for the leave....this page must be accessible to only mam -->
-        <p>Following data is present in database</p>
+        <p>Long leaves</p>
 
         <div id="container">
             <ul id="list">
@@ -28,12 +27,39 @@
                                    Reason for Leave: <%= i.longleave_reason %>
                                 </p>
                                 <p class="text-muted">
+                                  Visiting Address: <%= i.longleave_address %>
+                               </p>
+                                <p class="text-muted">
                                   Date of leave:  <%= i.start_date %> To <%= i.end_date %> 
                                 </p>
-                                <p>
-                                  Applied for long leave 
-                                </p>
-                                <div class="action-button-container">
+                                <p class="text-muted">
+                                  Room Number: <%= i.room_number %>
+                               </p>
+                                
+                                <div>
+                                 <% if( i.number == i.phone_number_temp){ %>
+                                  <p class="text-muted">
+                                  Phone Number:  <%= i.number %>
+                                  </p>
+                                 <% } else{ %>
+                                  <p class="text-muted">
+                                  Phone Number:  <%= i.number %> , <%= i.phone_number_temp %>
+                                  </p>
+                                 <% } %> 
+                                
+                                  <% if( i.parent_number == i.guardian_phone_number_long ){ %>
+                                  <p class="text-muted">  
+                                  Guardian Phone Number: <%= i.parent_number %> (Parent)
+                                  </p>
+                                    <% } else{ %> 
+                                  <p class="text-muted">    
+                                  Guardian Phone Number:  <%= i.guardian_phone_number_long %> (Guardian), <%= i.parent_number %> (Parent)
+                                  </p> 
+                                  <% } %>
+                                </div>
+
+                                  <div class="action-button-container">
+                                   <% if( i.longleave_applied &&  ! i.longleave_approved ){ %>
                                     <a href="/admin/longleave/<%=i.sid%>/1">
                                      <button class="btn btn-success btn-sm">
                                          Approve</button>
@@ -45,7 +71,20 @@
                                      </button>
  
                                     </a>
-                                  </div>
+                                    <% }
+                                else{
+                                  if( i.longleave_approved ){ %>
+                                    <p>
+                                      Leave approved by: <%=user.sid%>
+                                    </p>
+                                    <% }
+                                  else { %>
+                                    <p>
+                                      Leave rejected by: <%=user.sid%>
+                                    </p>
+                                    <% }
+                                }  %>
+                              </div>
                             </div>
                         
                            
@@ -53,6 +92,8 @@
     
                     <%} %>
             </ul>
+
+            <a href="/admin/access"><button class="button button2">GO back to profile page</button></a>
 
            
         </div>

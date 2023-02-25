@@ -118,6 +118,7 @@ html, body {
         /* color: chartreuse; */
         border-radius: 12px;
         margin-bottom: 5px;
+        text-align: center;
     }
     @media (min-width: 568px) {
     .name-item, .city-item {

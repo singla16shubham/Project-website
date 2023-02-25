@@ -1,15 +1,18 @@
 const data=require("../nodejsEXCELlinker")
 
 module.exports.logIn=function(req,res)
-{ //can we get username and pass here
-  console.log(req.user);
+{
   req.flash("success","Logged In successfully")
   return res.redirect('/user/profile');
 }
 
 module.exports.profile=function(req,res)
 { 
-  // console.log(req.cookies);
+  
+  var sid1=req.user.sid;
+  if(sid1=="Admin2"||sid1=="Jyoti Kedia"){
+  return res.redirect('/admin/access');
+  } 
   return res.render('profile',{
           title:"User Profile", });
 

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/long_leave.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+   
   </head>
   <body>
     <div class="testbox">
@@ -28,7 +28,7 @@
         </div>
         <div class="item">
           <label for="bdate">Start Date<span>*</span></label>
-          <input id="bdate" type="date" name="start_date" required/>
+          <input id="bdate" type="date" name="start_date"  required/>
           <i class="fas fa-calendar-alt"></i>
         </div>
         <div class="item">
@@ -81,9 +81,84 @@
          
       </form>
     </div>
-    <center><a href="/user/profile"><button class="button button2">GO back to profile page</button></a></center>
+    <a href="/user/profile"><button class="button button2">GO back to profile page</button></a>
      </div>
     </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js">
+
+    </script>
+    <!-- <script>
+      var todayDate = new Date();
+      var month = todayDate.getMonth()+1;
+      var year = todayDate.getUTCFullYear() - 0;
+      var tdate = todayDate.getDate();
+      var maxmonth = todayDate.getMonth()+2;
+      var maxyear = todayDate.getUTCFullYear() - 0;
+      var maxtdate = todayDate.getDate();
+      if (month < 10) {
+          month = "0" + month
+      }
+      if (tdate < 10) {
+          tdate = "0" + tdate;
+      }
+      if (maxmonth < 10) {
+          maxmonth = "0" + maxmonth
+      }
+      if (maxtdate < 10) {
+          maxtdate = "0" + maxtdate;
+      }
+      var minDate = year + "-" + month + "-" + tdate;
+      var maxDate = maxyear + "-" + maxmonth + "-" + maxtdate;
+      var elem=document.getElementsByName("start_date");
+      var element=document.getElementsByName("end_date");
+      elem[0].setAttribute("min", minDate);
+      elem[0].setAttribute("max", maxDate);
+      element[0].setAttribute("min", minDate);
+      element[0].setAttribute("max", maxDate);
+      console.log(minDate);
+      console.log(maxDate);
+  </script> -->
+
+    <script>
+$(document).ready(function()
+{
+  $(function()
+  {
+    var todayDate = new Date();
+      var month = todayDate.getMonth()+1;
+      var year = todayDate.getUTCFullYear() - 0;
+      var tdate = todayDate.getDate();
+      // var maxmonth = todayDate.getMonth()+2;
+      // var maxyear = todayDate.getUTCFullYear() - 0;
+      // var maxtdate = todayDate.getDate();
+      if (month < 10) {
+          month = "0" + month
+      }
+      if (tdate < 10) {
+          tdate = "0" + tdate;
+      }
+      var minDate = year + "-" + month + "-" + tdate;
+      console.log(minDate);
+      $('[name="start_date"]').attr('min',minDate);
+
+  })
+})
+
+      var fromdate;
+      $('[name="start_date"]').on('change',function()
+      {
+        fromdate=$(this).val();
+        $('[name="end_date"]').prop('min',function()
+        {
+          return fromdate;
+        })
+
+      })
+
+    </script>
+
+    
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
     <script>
       
 
@@ -110,23 +185,8 @@
     <%} %>
 
     </script>
-    <!-- <script type="text/javascript">
-      $(function(){
-        var dtToday = new Date();
-       
-       var month = dtToday.getMonth() ;
-       var day=dtToday.getDate()+20;
-       var minday = dtToday.getDate()+3;
-       var year = dtToday.getFullYear();
-       if(month < 10)
-           month = '0' + month.toString();
-       if(day < 10)
-        day = '0' + day.toString();
-       var maxDate = year + '-' + month + '-' + day;
-       var minDate = year + '-' + month + '-' + minday;
-       $('#inputdate').attr(minDate, maxDate);
-      });
-    </script> -->
+   
+  
     <!-- <script src="/js/script.js"></script> -->
   </body>
 </html>

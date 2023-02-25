@@ -9,14 +9,13 @@
     <script src="https://kit.fontawesome.com/c035598f8c.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/student.css">
 <!-- In this page we will show the data of the users who have applied for the leave....this page must be accessible to only mam -->
-        <p>Following data is present in database</p>
+        <p>Late leaves</p>
 
         <div id="container">
             <ul id="list">
                 <% for(let i of student_list){%>
                     <li>    
                             <div class="card task-card">
-                          
                                 <div class="card-body task-body">
                                     <h5 class="card-title ">
                                       Student Name:  <%= i.name %>
@@ -27,32 +26,62 @@
                                        Reason for Leave: <%= i.lateleave_reason %>
                                     </p>
                                     <p class="text-muted">
+                                      Visiting Address: <%= i.lateleave_address %>
+                                   </p>
+                                    <p class="text-muted">
                                       Date of leave:  <%= i.lateleave_date %>
                                     </p>
-                                    <p>
-                                      Applied for late leave 
+                                    <p class="text-muted">
+                                      Room Number: <%= i.room_number %>
                                     </p>
+                                    <p class="text-muted">
+                                      Branch: <%= i.department %>
+                                    </p>
+                                  <div>
+                                    <p class="text-muted">
+                                     <% if( i.number == i.phone_number_temp ){ %>
+                                      Phone Number:  <%= i.number %>
+                                     <% } else{ %>
+                                      Phone Number:  <%= i.number %> , <%= i.phone_number_temp %>
+                                     <% } %> 
+                                    </p>
+                                    <p class="text-muted">
+                                      <% if( i.parent_number == i.guardian_phone_number_late ){ %>
+                                        Guardian Phone Number: <%= i.parent_number %> (Parent)
+                                        <% } else{ %> 
+                                      Guardian Phone Number:  <%= i.guardian_phone_number_late %> (Guardian), <%= i.parent_number %> (Parent) 
+                                      <% } %> 
+                                    </p>
+                                  </div>
+
                                     <div class="action-button-container">
+                                      <% if( i.lateleave_applied &&  ! i.lateleave_approved ){ %>
                                         <a href="/admin/lateleave/<%=i.sid%>/1">
                                          <button class="btn btn-success btn-sm">
                                              Approve</button>
-     
                                         </a> 
                                         <a href="/admin/lateleave/<%=i.sid%>/0">
                                          <button class="btn btn-danger btn-sm">
                                               Disapprove 
-                                         </button>
-     
-                                        </a>
-                                      </div>
+                                         </button></a>
+                                        <% }
+                                    else{
+                                      if( i.lateleave_approved ){ %>
+                                        <p>
+                                          Leave approved by: <%=user.sid%>
+                                        </p>
+                                        <% }
+                                      else { %>
+                                        <p>
+                                          Leave rejected by: <%=user.sid%>
+                                        </p>
+                                        <% }
+                                    }  %>
+                                  </div>
                                 </div>
-                            
-                          
                         </div>
                     </li>
-    
                     <%} %>
-            </ul>
-
-           
+            </ul> 
+            <a href="/admin/access"><button class="button button2">GO back to profile page</button></a>
         </div>

@@ -26,6 +26,10 @@ const userSchema=new mongoose.Schema({
         type: String,
         required: true
     },
+    phone_number_temp:{
+        type: String,
+        required: true
+    },
     email:{
         type:String,
         required:true
@@ -39,6 +43,14 @@ const userSchema=new mongoose.Schema({
         required: true
     },
     parent_number:{
+        type: String,
+        required: true
+    },
+    guardian_phone_number_long:{
+        type: String,
+        required: true
+    },
+    guardian_phone_number_late:{
         type: String,
         required: true
     },

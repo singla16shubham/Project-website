@@ -3,6 +3,7 @@ const app=express();
 const port=8000;
 const path=require('path');
 var data=require('./nodejsEXCELlinker')
+var mailer=require('./mailer');
 
 const { urlencoded } = require('express');
 const cookieParser=require('cookie-parser');
